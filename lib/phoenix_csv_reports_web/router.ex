@@ -7,5 +7,9 @@ defmodule PhoenixCsvReportsWeb.Router do
 
   scope "/api", PhoenixCsvReportsWeb do
     pipe_through :api
+
+    resources "/partners", PartnerController, except: [:new, :edit]
+    resources "/registrations", RegistrationController, except: [:new, :edit]
+    post("/csv_report/:report_name", ReportsController, :create)
   end
 end
