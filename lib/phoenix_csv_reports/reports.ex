@@ -5,7 +5,7 @@ defmodule PhoenixCsvReports.Reports do
 
   import Ecto.Query, warn: false
   alias PhoenixCsvReports.Repo
-
+  alias PhoenixCsvReports.Reports.Registration
   alias PhoenixCsvReports.Reports.Partner
 
   @doc """
@@ -102,8 +102,6 @@ defmodule PhoenixCsvReports.Reports do
     Partner.changeset(partner, attrs)
   end
 
-  alias PhoenixCsvReports.Reports.Registration
-
   @doc """
   Returns the list of registrations.
 
@@ -146,7 +144,8 @@ defmodule PhoenixCsvReports.Reports do
 
   """
   def create_registration(attrs \\ %{}) do
-    %Registration{}
+    %Partner{id: attrs[:partner_id]}
+    |> Ecto.build_assoc(:registrations)
     |> Registration.changeset(attrs)
     |> Repo.insert()
   end

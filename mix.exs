@@ -41,7 +41,8 @@ defmodule PhoenixCsvReports.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tarams, "~> 1.7"},
-      {:cors_plug, "~> 3.0"}
+      {:cors_plug, "~> 3.0"},
+      {:brcpfcnpj, "~> 1.0"}
     ]
   end
 

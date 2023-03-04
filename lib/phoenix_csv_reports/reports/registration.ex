@@ -19,5 +19,17 @@ defmodule PhoenixCsvReports.Reports.Registration do
     registration
     |> cast(attrs, [:name, :cpf, :email])
     |> validate_required([:name, :cpf, :email])
+    |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/)
+    |> validate_cpf()
+  end
+
+  defp validate_cpf(changeset) do
+    cpf = get_field(changeset, :cpf)
+
+    if Brcpfcnpj.cpf_valid?(cpf) do
+      changeset
+    else
+      add_error(changeset, :cpf, "is invalid")
+    end
   end
 end
