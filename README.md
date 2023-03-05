@@ -1,5 +1,7 @@
 # PhoenixCsvReports
 
+This app uses phoenix version 1.7.1 and it is recommended to have at least elixir version 1.14.0 installed on your machine.
+
 To start your Phoenix server:
 
 - Have a postgres database available and if needed change the credentials in config/dev.exs
