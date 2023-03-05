@@ -1,4 +1,8 @@
 defmodule PhoenixCsvReportsWeb.ErrorJSON do
+  @moduledoc """
+    Render the JSON response for error cases
+  """
+
   # If you want to customize a particular status code,
   # you may add your own clauses, such as:
   #

@@ -1,4 +1,5 @@
 defmodule PhoenixCsvReportsWeb.ChangesetJSON do
+  @moduledoc false
   @doc """
   Renders changeset errors.
   """

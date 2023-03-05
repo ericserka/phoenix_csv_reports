@@ -1,9 +1,9 @@
 defmodule PhoenixCsvReportsWeb.ReportsJSON do
-  def daily_registrations(%{csvs: csvs}) do
-    %{data: csvs}
-  end
+  @moduledoc """
+    Render the JSON response for the
+  """
 
-  def daily_registrations_by_partner(%{csvs: csvs}) do
+  def csv_report(%{csvs: csvs}) do
     %{data: csvs}
   end
 end

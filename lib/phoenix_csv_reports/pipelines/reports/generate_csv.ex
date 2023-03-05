@@ -1,4 +1,8 @@
 defmodule PhoenixCsvReports.Pipelines.Reports.GenerateCsv do
+  @moduledoc """
+    Generate CSVs for reports
+  """
+
   import Ecto.Query
   alias PhoenixCsvReports.Repo
   alias PhoenixCsvReports.Reports.{Registration, Partner}

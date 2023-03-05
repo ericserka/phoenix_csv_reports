@@ -43,7 +43,8 @@ defmodule PhoenixCsvReports.MixProject do
       {:tarams, "~> 1.7"},
       {:cors_plug, "~> 3.0"},
       {:brcpfcnpj, "~> 1.0"},
-      {:csv, "~> 3.0"}
+      {:csv, "~> 3.0"},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 

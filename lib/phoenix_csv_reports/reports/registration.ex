@@ -1,4 +1,8 @@
 defmodule PhoenixCsvReports.Reports.Registration do
+  @moduledoc """
+    The Registration schema.
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
   alias PhoenixCsvReports.Reports.Partner
