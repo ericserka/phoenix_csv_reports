@@ -1,6 +1,6 @@
 # PhoenixCsvReports
 
-This app uses phoenix version 1.7.1 and it is recommended to have at least elixir version 1.14.0 installed on your machine.
+This app uses Phoenix version 1.7.1 and it is recommended to have at least elixir version 1.14.0 installed on your machine.
 
 To start your Phoenix server:
 
