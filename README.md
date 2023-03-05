@@ -7,3 +7,7 @@ To start your Phoenix server:
 - Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
 Now you can access [`localhost:4000`](http://localhost:4000).
+
+To run tests:
+
+- Run `mix test`
