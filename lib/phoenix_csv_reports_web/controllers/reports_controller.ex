@@ -2,6 +2,7 @@ defmodule PhoenixCsvReportsWeb.ReportsController do
   use PhoenixCsvReportsWeb, :controller
 
   alias PhoenixCsvReportsWeb.FallbackController
+  alias PhoenixCsvReports.Pipelines.Reports.GenerateCsv
 
   action_fallback PhoenixCsvReportsWeb.FallbackController
 
@@ -15,11 +16,11 @@ defmodule PhoenixCsvReportsWeb.ReportsController do
     end_date: [type: :date, default: Date.utc_today()]
   }
   def create(conn, params) do
-    with {:ok, valid_params} <- Tarams.cast(params, @create_params_schema) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/csv_report/teste")
-      |> render(:daily_registrations, csv: "ericserka")
+    with {:ok, %{report_name: report_name, end_date: end_date, start_date: start_date}} <-
+           Tarams.cast(params, @create_params_schema) do
+      render(conn, :daily_registrations,
+        csvs: GenerateCsv.call(report_name, %{start_date: start_date, end_date: end_date})
+      )
     else
       {:error, errors} -> FallbackController.call(conn, {:error, errors})
     end

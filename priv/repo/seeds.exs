@@ -31,7 +31,10 @@ Repo.insert_all(
   Enum.map(
     1..1000,
     fn i ->
-      date = dates_range |> Enum.random() |> NaiveDateTime.new!(~T[00:00:00])
+      hour = Enum.random(0..23)
+      minute = Enum.random(0..59)
+      second = Enum.random(0..59)
+      date = dates_range |> Enum.random() |> NaiveDateTime.new!(Time.new!(hour, minute, second))
 
       %{
         name: "Registration #{i}",

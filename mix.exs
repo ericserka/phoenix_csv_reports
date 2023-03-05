@@ -42,7 +42,8 @@ defmodule PhoenixCsvReports.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:tarams, "~> 1.7"},
       {:cors_plug, "~> 3.0"},
-      {:brcpfcnpj, "~> 1.0"}
+      {:brcpfcnpj, "~> 1.0"},
+      {:csv, "~> 3.0"}
     ]
   end
 
