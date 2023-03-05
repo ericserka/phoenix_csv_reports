@@ -2,7 +2,9 @@ defmodule PhoenixCsvReportsWeb.ErrorJSONTest do
   use PhoenixCsvReportsWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert PhoenixCsvReportsWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert PhoenixCsvReportsWeb.ErrorJSON.render("404.json", %{}) == %{
+             errors: %{detail: "Not Found"}
+           }
   end
 
   test "renders 500" do
