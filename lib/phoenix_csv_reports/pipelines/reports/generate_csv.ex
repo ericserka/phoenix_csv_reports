@@ -87,10 +87,10 @@ defmodule PhoenixCsvReports.Pipelines.Reports.GenerateCsv do
     {:ok, csvs}
   end
 
-  defp maybe_return_info_message({:error, error_message}), do: error_message
+  defp maybe_return_info_message({:error, _} = error), do: error
 
   defp maybe_return_info_message({:ok, output}) when output == %{} do
-    "No registrations found for the given filters"
+    {:error, "No registrations found for the given filters"}
   end
 
   defp maybe_return_info_message({:ok, output}) do

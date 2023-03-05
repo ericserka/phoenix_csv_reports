@@ -20,9 +20,15 @@ defmodule PhoenixCsvReportsWeb.ReportsController do
     |> Tarams.cast(@create_params_schema)
     |> case do
       {:ok, %{report_name: report_name, end_date: end_date, start_date: start_date}} ->
-        render(conn, :csv_report,
-          csvs: GenerateCsv.call(report_name, %{start_date: start_date, end_date: end_date})
-        )
+        report_name
+        |> GenerateCsv.call(%{start_date: start_date, end_date: end_date})
+        |> case do
+          {:error, error} ->
+            FallbackController.call(conn, {:error, error})
+
+          result ->
+            render(conn, :csv_report, csvs: result)
+        end
 
       {:error, errors} ->
         FallbackController.call(conn, {:error, errors})
